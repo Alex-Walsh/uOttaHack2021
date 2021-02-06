@@ -3,3 +3,18 @@ video,
 button {
   display: block;
 }
+
+
+
+.videoelement {
+    padding-top: 5%;
+}
+
+.dashboard {
+    padding-top: 30%;
+}
+
+.directvideo {
+    border-radius: 60px; 
+    overflow: hidden; 
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Webcam } from "react-webcam";
 import Camera from 'react-dom-camera';
 import styled, { createGlobalStyle, keyframes } from "styled-components";
+import './style.css';
 
 const Images = styled.div`
   align-items: center;
@@ -48,7 +49,7 @@ export class WebCamera extends React.Component{
   render() {
     return (
       <div className="camera">
-      <Camera
+      <Camera className="othercam"
   captureButtonRenderer={onClick => <button onClick={onClick} />}
   onTakePhoto={image =>
     window.alert(image)
@@ -109,7 +110,7 @@ export const WebcamCapture = () => {
       this.streamCamVideo= this.streamCamVideo.bind(this)
     }
     streamCamVideo() {
-      var constraints = { audio: true, video: { width: 1280, height: 720 } };
+      var constraints = { audio: false  , video: { width:600, height: 300 } };
       navigator.mediaDevices
         .getUserMedia(constraints)
         .then(function(mediaStream) {
@@ -126,12 +127,15 @@ export const WebcamCapture = () => {
     }
     render() {
       return (
-        <div>
-          <div id="container">
+        <div className="videoelement"   style={{
+          position: 'absolute'
+      
+      }}>
+          <div id="container" className="directvideo">
             <video autoPlay={true} id="videoElement" controls></video>
           </div>
           <br/>
-          <button onClick={this.streamCamVideo}>Start streaming</button>
+          <button onClick={this.streamCamVideo}>Start</button>
         </div>
       );
     }
