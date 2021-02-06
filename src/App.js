@@ -6,6 +6,7 @@ import { useState } from 'react';
 import React, { createContext } from 'react';
 import MainPage from "./monitorpage";
 import { BrowserRouter, Switch,  Route} from 'react-router-dom'; 
+import Tensor from './Tensor.js';
 
 export const AppContext = createContext({});
 
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
 
       <Navigationbar />
+      <Tensor />
       {/* <WebcamCapture /> */}
       {/* <AppStreamCam /> */}
       {/* <Dashboard /> */}

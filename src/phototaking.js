@@ -132,7 +132,8 @@ export const WebcamCapture = () => {
       
       }}>
           <div id="container" className="directvideo">
-            <video autoPlay={true} id="videoElement" controls></video>
+            <video id="img-to-proscess" autoPlay={true} controls></video>
+            <canvas id="what-the-ai-sees"></canvas>
           </div>
           <br/>
           <button onClick={this.streamCamVideo}>Start</button>
