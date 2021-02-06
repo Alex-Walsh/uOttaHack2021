@@ -3,6 +3,7 @@ import { Webcam } from "react-webcam";
 import Camera from 'react-dom-camera';
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import './style.css';
+import Button from 'react-bootstrap/Button';
 
 const Images = styled.div`
   align-items: center;
@@ -136,7 +137,7 @@ export const WebcamCapture = () => {
             <canvas id="what-the-ai-sees"></canvas>
           </div>
           <br/>
-          <button onClick={this.streamCamVideo}>Start</button>
+          <Button variant="success" onClick={this.streamCamVideo}>Start</Button>
         </div>
       );
     }

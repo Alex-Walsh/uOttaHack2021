@@ -25,7 +25,7 @@ function App() {
     <div className="App">
 
       <Navigationbar />
-      <Tensor />
+      
       {/* <WebcamCapture /> */}
       {/* <AppStreamCam /> */}
       {/* <Dashboard /> */}
