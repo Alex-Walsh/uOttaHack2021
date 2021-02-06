@@ -1,5 +1,70 @@
 import React from 'react';
 import { Webcam } from "react-webcam";
+import Camera from 'react-dom-camera';
+import styled, { createGlobalStyle, keyframes } from "styled-components";
+
+const Images = styled.div`
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: scale(0.87); }
+  to { opacity: 1; transform: none; }
+`;
+
+const settings = {
+  colors: {
+    headings: "#7A08FA",
+    text: "#A82FFC"
+  },
+  space: 24
+};
+
+const Image = styled.img`
+  animation: ${fadeIn} 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid #fafafa;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  height: auto;
+  margin-bottom: ${settings.space / 3}px;
+  margin-right: ${settings.space / 3}px;
+  width: calc(33.333% - ${settings.space / 4}px);
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+`;
+
+export class WebCamera extends React.Component{
+  constructor() {
+    super();
+    this.state = {
+      photos: []
+    }
+  }
+    
+
+  render() {
+    return (
+      <div className="camera">
+      <Camera
+  captureButtonRenderer={onClick => <button onClick={onClick} />}
+  onTakePhoto={image =>
+    window.alert(image)
+    // t  
+  }
+/>
+<Images>
+             {this.state.photos.map(img => (
+                <Image key={img} src={img} />
+              ))}
+            </Images>
+            </div>
+  );
+  }
+}
+
 
 
 export const WebcamCapture = () => {
