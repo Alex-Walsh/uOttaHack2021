@@ -15,6 +15,11 @@ button {
     text-decoration: none;
 }
 
+.whitelink::after{
+    color: white;
+    text-decoration: none;
+}
+
 .whitelink:hover {
     text-decoration: none;
     color: white;

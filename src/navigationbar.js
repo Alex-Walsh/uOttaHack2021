@@ -10,7 +10,7 @@ export default function Navigationbar() {
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto" >
-      <Nav.Link ><Link to="/aboutus" className="whitelink">About Us</Link></Nav.Link>
+      <Nav.Link className="whitelink" href="https://alex-walsh.github.io/uOttaHack2021/about-us/" >About Us</Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
