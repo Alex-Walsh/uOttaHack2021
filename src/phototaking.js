@@ -126,6 +126,10 @@ import Button from 'react-bootstrap/Button';
           console.log(err.name + ": " + err.message);
         }); // always check for errors at the end.
     }
+
+    componentDidMount() {
+      this.streamCamVideo()
+    }
     render() {
       return (
         <div className="videoelement"   style={{
@@ -133,11 +137,11 @@ import Button from 'react-bootstrap/Button';
       
       }}>
           <div id="container" className="directvideo">
-            <video no-controls="true" id="img-to-proscess" autoPlay={true} controls></video>
+            <video no-controls id="img-to-proscess" autoPlay={true} controls></video>
             <canvas id="what-the-ai-sees"></canvas>
           </div>
           <br/>
-          <Button variant="success" onClick={this.streamCamVideo}>Start</Button>
+          {/* <Button variant="success" onClick={this.streamCamVideo}>Start</Button> */}
         </div>
       );
     }

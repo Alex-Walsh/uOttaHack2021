@@ -14,12 +14,14 @@ export default function MainPage() {
             <Col lg={8}>
                 <Tensor />
             </Col>
-            <Col lg={3}>
-                <Charttop />
-            </Col>
             <Col lg={4}>
+                <Row><Charttop /></Row>
+                <Row>
                 <Dashboard />
+                </Row>
+                
             </Col>
+        
         </Row>
     </Container>
     );
