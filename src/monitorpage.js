@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { AppStreamCam } from './phototaking';
 import Dashboard from './dashaboard';
 import Tensor from './Tensor';
+import Charttop from './Chart';
 
 export default function MainPage() {
     return (
@@ -12,6 +13,9 @@ export default function MainPage() {
         <Row>
             <Col lg={8}>
                 <Tensor />
+            </Col>
+            <Col lg={3}>
+                <Charttop />
             </Col>
             <Col lg={4}>
                 <Dashboard />
