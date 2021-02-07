@@ -4,10 +4,15 @@ import { AppStreamCam } from "./phototaking";
 import * as posenet from "@tensorflow-models/posenet";
 import * as tf from "@tensorflow/tfjs";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { DepthwiseConv2dNative } from "@tensorflow/tfjs";
 
+import { AppContext } from './App.js'
+import axios from 'axios';
+
 const MULTIPLIER = 1;
+
+var context;
 
 function drawPoint(ctx, x, y, r) {
   //console.log(x.toString() + y.toString());
@@ -37,17 +42,23 @@ function videoDimensions(video) {
 function distance(point1, point2) {
   return Math.hypot(point2["x"]-point1["x"], point2["y"]-point1["y"]);
 }
-var cough = 0;
-var touch = 0;
+
 
 function touchUpdate() {
-  touch++;
+  
+  context.facetouch.set(context.facetouch.get + 1);
+  // console.log("setting touch to ", touch);
+  // console.log("getting touch to ", context.facetouch.get);
+  
   //document.getElementById("touch").innerHTML = touch.toString() + " Touch";
+
 }
 
 function coughUpdate() {
-  cough++;
+
+  context.cough.set(context.cough.get + 1);
   //document.getElementById("cough").innerHTML = cough.toString() + " Cough";
+
 }
 
 function sleep (time) {
@@ -137,8 +148,21 @@ async function checkVideo() {
 }
 
 function Tensor() {
-  useEffect(() => checkVideo(), []);
+  context = useContext(AppContext);
 
+  useEffect(async () => {
+    checkVideo()
+    // var both = await axios.get('https://us-central1-fitness-app-db0b5.cloudfunctions.net/api/gethackdata')
+    //     .then(function(response) {
+    //         return response;
+    //     });
+    // cough = parseInt(both.data.cough);
+    // touch = parseInt(both.data.facethouch);
+    // context.cough.set(cough);
+    // context.facetouch.set(touch);
+
+  }, []);
+  
   // window.setTimeout(function(){
   //   window.clearInterval(id);
   // }, 5000);
