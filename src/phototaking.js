@@ -137,7 +137,7 @@ import Button from 'react-bootstrap/Button';
       
       }}>
           <div id="container" className="directvideo">
-            <video no-controls id="img-to-proscess" autoPlay={true} controls></video>
+            <video no-controls id="img-to-proscess" autoPlay={true}></video>
             <canvas id="what-the-ai-sees"></canvas>
           </div>
           <br/>

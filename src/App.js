@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import React, { createContext } from 'react';
 import MainPage from "./monitorpage";
-import { BrowserRouter, Switch,  Route} from 'react-router-dom'; 
+import { BrowserRouter, Switch,  Route, HashRouter} from 'react-router-dom'; 
 import axios from 'axios';
 import Navigationbar from './navigationbar';
 import Aboutus from './aboutus';
@@ -29,25 +29,21 @@ function App() {
   
 
   return (
-    <BrowserRouter>
-    <AppContext.Provider value={store}>
-    <div className="App">
-
-      <Navigationbar />
-      
-      
-    </div>
-    <Switch>
-      <Route exact path="/">
-      <MainPage />
-      </Route> 
-      
-      <Route path="aboutus">
-        <Aboutus />
-      </Route>
-    </Switch>
-    </AppContext.Provider>
-    </BrowserRouter>
+    <HashRouter basename="/">
+      <AppContext.Provider value={store}>
+        <div className="App">
+          <Navigationbar />
+        </div>
+        <Switch>
+          <Route exact path="/">
+            <MainPage />
+          </Route> 
+          <Route path="aboutus">
+            <Aboutus />
+          </Route>
+        </Switch>
+      </AppContext.Provider>
+    </HashRouter>
   );
 }
 
