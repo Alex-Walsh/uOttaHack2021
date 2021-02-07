@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/uOttaHack2021/static/css/main.0284220b.chunk.css",
-    "main.js": "/uOttaHack2021/static/js/main.bb442466.chunk.js",
-    "main.js.map": "/uOttaHack2021/static/js/main.bb442466.chunk.js.map",
+    "main.js": "/uOttaHack2021/static/js/main.b1706cec.chunk.js",
+    "main.js.map": "/uOttaHack2021/static/js/main.b1706cec.chunk.js.map",
     "runtime-main.js": "/uOttaHack2021/static/js/runtime-main.94eb2987.js",
     "runtime-main.js.map": "/uOttaHack2021/static/js/runtime-main.94eb2987.js.map",
     "static/css/2.150d169a.chunk.css": "/uOttaHack2021/static/css/2.150d169a.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.150d169a.chunk.css",
     "static/js/2.de74ee68.chunk.js",
     "static/css/main.0284220b.chunk.css",
-    "static/js/main.bb442466.chunk.js"
+    "static/js/main.b1706cec.chunk.js"
   ]
 }
