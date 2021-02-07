@@ -5,103 +5,103 @@ import styled, { createGlobalStyle, keyframes } from "styled-components";
 import './style.css';
 import Button from 'react-bootstrap/Button';
 
-const Images = styled.div`
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-`;
+// const Images = styled.div`
+//   align-items: center;
+//   display: flex;
+//   flex-wrap: wrap;
+// `;
 
-const fadeIn = keyframes`
-  from { opacity: 0; transform: scale(0.87); }
-  to { opacity: 1; transform: none; }
-`;
+// const fadeIn = keyframes`
+//   from { opacity: 0; transform: scale(0.87); }
+//   to { opacity: 1; transform: none; }
+// `;
 
-const settings = {
-  colors: {
-    headings: "#7A08FA",
-    text: "#A82FFC"
-  },
-  space: 24
-};
+// const settings = {
+//   colors: {
+//     headings: "#7A08FA",
+//     text: "#A82FFC"
+//   },
+//   space: 24
+// };
 
-const Image = styled.img`
-  animation: ${fadeIn} 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 1px solid #fafafa;
-  border-radius: 1px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  height: auto;
-  margin-bottom: ${settings.space / 3}px;
-  margin-right: ${settings.space / 3}px;
-  width: calc(33.333% - ${settings.space / 4}px);
-  &:nth-child(3n) {
-    margin-right: 0;
-  }
-`;
+// const Image = styled.img`
+//   animation: ${fadeIn} 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+//   border: 1px solid #fafafa;
+//   border-radius: 1px;
+//   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+//   height: auto;
+//   margin-bottom: ${settings.space / 3}px;
+//   margin-right: ${settings.space / 3}px;
+//   width: calc(33.333% - ${settings.space / 4}px);
+//   &:nth-child(3n) {
+//     margin-right: 0;
+//   }
+// `;
 
-export class WebCamera extends React.Component{
-  constructor() {
-    super();
-    this.state = {
-      photos: []
-    }
-  }
+// export class WebCamera extends React.Component{
+//   constructor() {
+//     super();
+//     this.state = {
+//       photos: []
+//     }
+//   }
     
 
-  render() {
-    return (
-      <div className="camera">
-      <Camera className="othercam"
-  captureButtonRenderer={onClick => <button onClick={onClick} />}
-  onTakePhoto={image =>
-    window.alert(image)
-    // t  
-  }
-/>
-<Images>
-             {this.state.photos.map(img => (
-                <Image key={img} src={img} />
-              ))}
-            </Images>
-            </div>
-  );
-  }
-}
+//   render() {
+//     return (
+//       <div className="camera">
+//       <Camera className="othercam"
+//   captureButtonRenderer={onClick => <button onClick={onClick} />}
+//   onTakePhoto={image =>
+//     window.alert(image)
+//     // t  
+//   }
+// />
+// <Images>
+//              {this.state.photos.map(img => (
+//                 <Image key={img} src={img} />
+//               ))}
+//             </Images>
+//             </div>
+//   );
+//   }
+// }
 
 
 
-export const WebcamCapture = () => {
-    const webcamRef = React.useRef(null);
-    const [imgSrc, setImgSrc] = React.useState(null);
-    const videoConstraints = {
-        width: 1280,
-        height: 720,
-        facingMode: "user"
-      };
-    const capture = React.useCallback(() => {
-      const imageSrc = webcamRef.current.getScreenshot();
-      setImgSrc(imageSrc);
-    }, [webcamRef, setImgSrc]);
+// export const WebcamCapture = () => {
+//     const webcamRef = React.useRef(null);
+//     const [imgSrc, setImgSrc] = React.useState(null);
+//     const videoConstraints = {
+//         width: 1280,
+//         height: 720,
+//         facingMode: "user"
+//       };
+//     const capture = React.useCallback(() => {
+//       const imageSrc = webcamRef.current.getScreenshot();
+//       setImgSrc(imageSrc);
+//     }, [webcamRef, setImgSrc]);
   
-    return (
-      <>
-        <Webcam
-          audio={false}
-          height={720}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          width={1280}
-          videoConstraints={videoConstraints}
+//     return (
+//       <>
+//         <Webcam
+//           audio={false}
+//           height={720}
+//           ref={webcamRef}
+//           screenshotFormat="image/jpeg"
+//           width={1280}
+//           videoConstraints={videoConstraints}
     
-        />
-        <button onClick={capture}>Capture photo</button>
-        {imgSrc && (
-          <img
-            src={imgSrc}
-          />
-        )}
-      </>
-    );
-  };
+//         />
+//         <button onClick={capture}>Capture photo</button>
+//         {imgSrc && (
+//           <img
+//             src={imgSrc}
+//           />
+//         )}
+//       </>  
+//     );
+//   };
   
 
   
@@ -116,9 +116,9 @@ export const WebcamCapture = () => {
         .getUserMedia(constraints)
         .then(function(mediaStream) {
           var video = document.querySelector("video");
-  
           video.srcObject = mediaStream;
           video.onloadedmetadata = function(e) {
+            document.getElementById("img-to-proscess").style.visibility = "visible";
             video.play();
           };
         })
@@ -133,7 +133,7 @@ export const WebcamCapture = () => {
       
       }}>
           <div id="container" className="directvideo">
-            <video id="img-to-proscess" autoPlay={true} controls></video>
+            <video no-controls="true" id="img-to-proscess" autoPlay={true} controls></video>
             <canvas id="what-the-ai-sees"></canvas>
           </div>
           <br/>

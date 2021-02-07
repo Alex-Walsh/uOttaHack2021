@@ -5,6 +5,9 @@ import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import { AppContext } from './App';
 import './style.css';
+import Card from 'react-bootstrap/Card'
+import { AppStreamCam } from './phototaking';
+import Button from 'react-bootstrap/Button';
 // function getdashboarddata() {
 //     return axios.get('https://us-central1-fitness-app-db0b5.cloudfunctions.net/api/gethackdata')
 //         .then(function(response) {
@@ -45,14 +48,27 @@ export default function Dashboard() {
         <div className="dashboard">
             <Container>
                 <Col>
+                <Card>
                 <Row id="snipe1">
-                    Coughs : {context.cough.get} 
-                </Row>
+    <Card.Body>
+<Card.Title>Coughs</Card.Title>
+    <Card.Text>
+    {context.cough.get}
+    </Card.Text>
+  </Card.Body>                  
+</Row>
+            
                 <Row id="snipe2">
-                    Face Touches : {context.facetouch.get}
+                  
+                    <Card.Body>
+<Card.Title>Face Touches</Card.Title>
+    <Card.Text>
+    {context.facetouch.get}
+    </Card.Text>
+  </Card.Body>  
                 </Row>
              
-            
+                </Card>
             
             </Col>
             </Container>
@@ -60,3 +76,6 @@ export default function Dashboard() {
 
     );
 }
+
+
+

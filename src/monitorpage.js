@@ -11,13 +11,13 @@ export default function MainPage() {
     return (
     <Container>
         <Row>
-            <Col lg="10">
+            <Col lg={8}>
                 <Tensor />
             </Col>
-            <Col lg="3">
+            <Col lg={3}>
                 <Charttop />
             </Col>
-            <Col lg="2">
+            <Col lg={4}>
                 <Dashboard />
             </Col>
         </Row>
