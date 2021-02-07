@@ -15,6 +15,16 @@ button {
 }
 
 .directvideo {
-    border-radius: 100px; 
     overflow: hidden;
+}
+
+#img-to-proscess {
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    object-fit: cover;
+}
+
+#what-the-ai-sees {
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
 }
