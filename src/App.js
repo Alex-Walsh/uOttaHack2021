@@ -1,14 +1,10 @@
-import Navigationbar from "./navigationbar";
-import { AppStreamCam, WebCamera } from "./phototaking";
-import Docs from "./other";
-import Dashboard from './dashaboard';
 import { useState, useContext, useEffect } from 'react';
 import React, { createContext } from 'react';
 import MainPage from "./monitorpage";
 import { BrowserRouter, Switch,  Route} from 'react-router-dom'; 
-import Tensor from './Tensor.js';
 import axios from 'axios';
-
+import Navigationbar from './navigationbar';
+import Aboutus from './aboutus';
 export const AppContext = createContext({});
 
 function App() {
@@ -39,20 +35,15 @@ function App() {
 
       <Navigationbar />
       
-      {/* <WebcamCapture /> */}
-      {/* <AppStreamCam /> */}
-      {/* <Dashboard /> */}
-       {/* <WebCamera />  */}
-       {/* take a picture */}
-       {/* <Docs /> */}
-      <MainPage />
+      
     </div>
     <Switch>
       <Route exact path="/">
-
+      <MainPage />
       </Route> 
-      <Route path="About Us">
-        {/* <Aboutus /> */}
+      
+      <Route path="aboutus">
+        <Aboutus />
       </Route>
     </Switch>
     </AppContext.Provider>

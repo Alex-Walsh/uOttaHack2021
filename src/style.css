@@ -5,6 +5,20 @@ button {
 }
 
 
+#img-to-proscess {
+    visibility: hidden;
+}
+
+.whitelink {
+    color: white;
+    text-decoration-line: none;
+    text-decoration: none;
+}
+
+.whitelink:hover {
+    text-decoration: none;
+    color: white;
+}
 
 .videoelement {
     padding-top: 5%;
