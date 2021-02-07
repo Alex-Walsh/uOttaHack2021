@@ -39,7 +39,7 @@ export default function Dashboard() {
             setInterval(() => {
                 // console.log(context.facetouch.get);
                 // console.log(context.cough.get);
-                setdashboarddata(document.getElementById("snipe1").innerHTML.split("Coughs : ")[1], document.getElementById("snipe2").innerHTML.split("Face Touches : ")[1]);
+                setdashboarddata(document.getElementById("snipe1").innerHTML, document.getElementById("snipe2").innerHTML);
             }, 1000*60);
         }
         actuallyRun();
@@ -49,20 +49,20 @@ export default function Dashboard() {
             <Container>
                 <Col>
                 <Card>
-                <Row id="snipe1">
+                <Row>
     <Card.Body>
 <Card.Title>Coughs</Card.Title>
-    <Card.Text>
+    <Card.Text id="snipe1">
     {context.cough.get}
     </Card.Text>
   </Card.Body>                  
 </Row>
             
-                <Row id="snipe2">
+                <Row>
                   
                     <Card.Body>
 <Card.Title>Face Touches</Card.Title>
-    <Card.Text>
+    <Card.Text id="snipe2">
     {context.facetouch.get}
     </Card.Text>
   </Card.Body>  

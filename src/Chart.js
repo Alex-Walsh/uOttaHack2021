@@ -36,12 +36,12 @@ function updateGraph() {
         console.log("moving");
         chart.data.labels.push(new Date().toLocaleTimeString())
         chart.data.labels.shift();
-        chart.data.datasets[0].data.push(parseInt(document.getElementById("snipe1").innerHTML.split("Coughs : ")[1])-last1);
-        chart.data.datasets[1].data.push(parseInt(document.getElementById("snipe2").innerHTML.split("Face Touches : ")[1])-last2);
+        chart.data.datasets[0].data.push(parseInt(document.getElementById("snipe1").innerHTML)-last1);
+        chart.data.datasets[1].data.push(parseInt(document.getElementById("snipe2").innerHTML)-last2);
         chart.data.datasets[0].data.shift();
         chart.data.datasets[1].data.shift();
-        last1 = document.getElementById("snipe1").innerHTML.split("Coughs : ")[1];
-        last2 = document.getElementById("snipe2").innerHTML.split("Face Touches : ")[1];
+        last1 = document.getElementById("snipe1").innerHTML;
+        last2 = document.getElementById("snipe2").innerHTML;
         chart.update();
     }, 1000);
     
